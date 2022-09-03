@@ -1,0 +1,86 @@
+[
+    {
+        "url": "/",
+        "divider": 0,
+        "menuList": [
+            {
+                "url": "/addCompany",
+                "divider": 0,
+                "menuList": [ ],
+                "menuid": 2,
+                "menuname": "添加公司",
+                "menupid": 1,
+                "menudesc": "增加一家公司或集团"
+            },
+            {
+                "url": "/stopUse",
+                "divider": 0,
+                "menuList": [ ],
+                "menuid": 3,
+                "menuname": "公司禁用",
+                "menupid": 1,
+                "menudesc": "禁用一家公司或集团"
+            }
+        ],
+        "menuid": 1,
+        "menuname": "后台管理",
+        "menupid": 0,
+        "menudesc": "EHR系统管理员功能"
+    },
+    {
+        "url": "/",
+        "divider": 0,
+        "menuList": [
+            {
+                "url": "/CompanyOrg",
+                "divider": 0,
+                "menuList": [ ],
+                "menuid": 5,
+                "menuname": "公司架构",
+                "menupid": 4,
+                "menudesc": "定义集团法人结构"
+            },
+            {
+                "url": "/",
+                "divider": 1,
+                "menuList": [
+                    {
+                        "url": "/position/add",
+                        "divider": 0,
+                        "menuList": [ ],
+                        "menuid": 10,
+                        "menuname": "添加职位",
+                        "menupid": 6,
+                        "menudesc": "添加一个职位"
+                    },
+                    {
+                        "url": "/position/delete",
+                        "divider": 0,
+                        "menuList": [ ],
+                        "menuid": 11,
+                        "menuname": "删除职位",
+                        "menupid": 6,
+                        "menudesc": "删除一个职位"
+                    }
+                ],
+                "menuid": 6,
+                "menuname": "职位管理",
+                "menupid": 4,
+                "menudesc": "定认集团职位结构"
+            }
+        ],
+        "menuid": 4,
+        "menuname": "集团管理",
+        "menupid": 0,
+        "menudesc": "集团HRD功能"
+    },
+    {
+        "url": "/syslog",
+        "divider": 0,
+        "menuList": [ ],
+        "menuid": 9,
+        "menuname": "系统日志",
+        "menupid": 0,
+        "menudesc": "系统运行日志"
+    }
+]
