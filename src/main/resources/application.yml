@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    username: gene
+    password: 123456
+    url: jdbc:mysql://localhost:3306/soeasy
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  security:
+    user:
+      name: gene
+      password: 12345678
+  application:
+    name: soeasy
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.gene.soeasy.dao
+server:
+  port: 8001
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
+    key-alias: tomcat
+
+
