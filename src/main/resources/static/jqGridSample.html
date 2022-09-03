@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jqgrid案例1</title>
+<!-- jquery ui  css -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/jquery-ui-1.12.0/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="assets/vendor/jquery-ui-1.12.0/jquery-ui.structure.css" />
+<!-- jquery ui theme css -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/jquery-ui-1.12.0/jquery-ui.theme.css" />
+<link rel="stylesheet" type="text/css" href="assets/vendor/jquery-ui-1.12.0/themes/redmond/jquery-ui.css" />
+<!-- jqgrid css -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/jquery.jqGrid-5.7.0/css/ui.jqgrid.css" />
+<!-- jqgrid bootstrap css -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/jquery.jqGrid-5.7.0/css/ui.jqgrid-bootstrap.css" />
+<!-- jquery js -->
+<script type="text/javascript" src="assets/vendor/jquery.jqGrid-5.7.0/jquery.js"></script>
+<!-- jquery ui js -->
+<script type="text/javascript" src="assets/vendor/jquery-ui-1.12.0/jquery-ui.js"></script>
+<!-- jqgrid js -->
+<script type="text/javascript" src="assets/vendor/jquery.jqGrid-5.7.0/js/jquery.jqGrid.js"></script>
+<!-- jqgrid locale js -->
+<script type="text/javascript" src="assets/vendor/jquery.jqGrid-5.7.0/js/i18n/grid.locale-cn.js"></script>
+
+</head>
+<body>
+	<table id="list1"></table>
+	<div id="pager1">
+	</div>
+</body>
+<script type="text/javascript">
+$(document).ready(function (){
+	  $("#list1").jqGrid({
+		   	url:'../book/getBooks',
+			  	datatype: "json",
+			     	colNames:['书籍编号','书籍名称', '库存数量'],
+			     	colModel:[
+			     		{name:'bookId',index:'bookId', width:200},
+			     		{name:'name',index:'name', width:270},
+			     		{name:'number',index:'number', width:200}
+			     	],
+		   	rowNum:10,
+		   	rowList:[10,20,30],
+		   	pager: jQuery('#pager1'),
+		   	sortname: 'id',
+		    viewrecords: true,
+		    sortorder: "desc",
+		    caption:"书籍列表",
+		    loadonce:true,
+		    autowidth: true,
+		    multiselect:true,
+		    shrinkToFit:true,
+		    rownumbers:true,
+		    height: $(window).height() - 200,
+		    viewrecords: true
+		}).navGrid('#pager1',{edit:false,add:false,del:false});	
+})
+</script>
+</html>

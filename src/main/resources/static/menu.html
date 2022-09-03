@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jqgrid案例1</title>
+    <!-- jquery ui  css -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/jquery-ui-1.12.0/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/vendor/jquery-ui-1.12.0/jquery-ui.structure.css"/>
+    <!-- jquery ui theme css -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/jquery-ui-1.12.0/jquery-ui.theme.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/vendor/jquery-ui-1.12.0/themes/redmond/jquery-ui.css"/>
+    <!-- jqgrid css -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/jquery.jqGrid-5.7.0/css/ui.jqgrid.css"/>
+    <!-- jqgrid bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="assets/vendor/jquery.jqGrid-5.7.0/css/ui.jqgrid-bootstrap.css"/>
+    <!-- jquery js -->
+    <script type="text/javascript" src="assets/vendor/jquery.jqGrid-5.7.0/jquery.js"></script>
+    <!-- jquery ui js -->
+    <script type="text/javascript" src="assets/vendor/jquery-ui-1.12.0/jquery-ui.js"></script>
+    <!-- jqgrid js -->
+    <script type="text/javascript" src="assets/vendor/jquery.jqGrid-5.7.0/js/jquery.jqGrid.js"></script>
+    <!-- jqgrid locale js -->
+    <script type="text/javascript" src="assets/vendor/jquery.jqGrid-5.7.0/js/i18n/grid.locale-cn.js"></script>
+
+</head>
+<body>
+<table id="list1"></table>
+<div id="pager1">
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#list1").jqGrid({
+            url: 'user/getusermenu',
+            treedatatype: "xml",
+            colNames: ['菜单编号', '菜单名称', '上级菜单', '菜单功能描述'],
+            colModel: [
+                {name: 'menuid', index: 'menuid', width: 200},
+                {name: 'menuname', index: 'menuname', width: 270},
+                {name: 'menupid', index: 'menupid', width: 200},
+                {name: 'menudesc', index: 'menudesc', width: 300}
+            ],
+            rowNum: 10,
+            rowList: [10, 20, 30],
+            pager: jQuery('#pager1'),
+            treeGrid:true,
+            ExpandColumn:"menuname",
+            viewrecords: true,
+            sortorder: "desc",
+            caption: "菜单列表",
+            loadonce: true,
+            autowidth: true,
+            shrinkToFit: true,
+            height: $(window).height() - 200,
+        }).navGrid('#pager1', {edit: false, add: false, del: false});
+    });
+
+    //以下代码是怎么把JSON转成想要的菜单样式
+    $(document).ready(function () {
+        $.get("user/getusermenu",function(data,status){
+            alert("数据: " + data.toString() + "\n状态: " + status);
+        });
+    });
+
+</script>
+</html>
