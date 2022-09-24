@@ -9,6 +9,7 @@
     <modules>
         <module>soeasy-mybatis-plus</module>
         <module>soeasy-spring-security</module>
+        <module>soeasy-mybatis-generator</module>
         <module>soeasy-common</module>
         <module>soeasy-controller</module>
     </modules>

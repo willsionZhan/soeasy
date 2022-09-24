@@ -8,7 +8,9 @@
     <!-- context 是逆向工程的主要配置信息 -->
     <!-- id：起个名字 -->
     <!-- targetRuntime：设置生成的文件适用于那个 mybatis 版本 -->
+    <!--
     <classPathEntry location="D:\j2ee\maven\repository\mysql\mysql-connector-java\8.0.30\mysql-connector-java-8.0.30.jar"/>
+    -->
     <context id="default" targetRuntime="MyBatis3">
         <!--jdbc的数据库连接-->
         <!--这里是以变量的形式定义，具体的值在 application.properties 文件中-->
@@ -67,13 +69,13 @@
 
         <!--
         <table tableName="book" domainObjectName="Book"></table>
-
+        <table tableName="sys_user" domainObjectName="User"></table>
         <table tableName="sys_role" domainObjectName="Role"></table>
         <table tableName="sys_menu" domainObjectName="Menu"></table>
         <table tableName="sys_rolemenu" domainObjectName="RoleMenu"></table>
         <table tableName="sys_company" domainObjectName="Company"></table>
         -->
-        <table tableName="sys_user" domainObjectName="User"></table>
+
     </context>
 </generatorConfiguration>
 
