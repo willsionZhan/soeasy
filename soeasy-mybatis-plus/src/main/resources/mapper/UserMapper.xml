@@ -2,26 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gene.soeasy.mapper.UserMapper">
 
-    <select id="getAllUser" resultType="com.gene.soeasy.entity.User">
-        SELECT * FROM SYS_USER ORDER BY USERID;
-    </select>
-
-    <select id="getUser" resultType="com.gene.soeasy.entity.User" parameterType="String">
-        SELECT * FROM SYS_USER WHERE USERCODE=#{usercode};
-    </select>
 
     <select id="getUserRoles" resultType="com.gene.soeasy.entity.Role" parameterType="String">
         SELECT C.* FROM SYS_USER A LEFT JOIN SYS_USER_ROLE B ON A.USERID=B.USERID
                                    LEFT JOIN SYS_ROLE C ON B.ROLEID=C.ROLEID
-                                   WHERE A.USERCODE = #{usercode};
+        WHERE A.USERCODE = #{userCode};
     </select>
 
     <select id="getUserMenus" resultType="com.gene.soeasy.entity.Menu" parameterType="String">
         SELECT D.* FROM SYS_USER A LEFT JOIN SYS_USER_ROLE B ON A.USERID=B.USERID
-                                 LEFT JOIN SYS_ROLE_MENU C ON C.ROLEID=B.ROLEID
-                                 LEFT JOIN SYS_MENU D ON C.MENUID=D.MENUID
-                                 WHERE A.USERCODE = #{usercode} ORDER BY D.SORTID;
+                                   LEFT JOIN SYS_ROLE_MENU C ON C.ROLEID=B.ROLEID
+                                   LEFT JOIN SYS_MENU D ON C.MENUID=D.MENUID
+        WHERE A.USERCODE = #{userCode} ORDER BY D.SORTID;
     </select>
-
-
 </mapper>

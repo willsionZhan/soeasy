@@ -1,18 +1,35 @@
 spring:
   datasource:
-    username: gene
-    password: 123456
-    url: jdbc:mysql://localhost:3306/soeasy
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    dynamic:
+      primary: master
+      strict: false
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/soeasy
+          drive-class-name: com.mysql.cj.jdbc.Driver
+          username: gene
+          password: 123456
+        slave_1:
+          url: jdbc:mysql://localhost:3306/mysql
+          drive-class-name: com.mysql.cj.jdbc.Driver
+          username: gene
+          password: 123456
   application:
     name: soeasy
   security:
     user:
       name: gene
       password: 12345678
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: org.gene.soeasy.dao
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
 server:
   port: 8001
   ssl:

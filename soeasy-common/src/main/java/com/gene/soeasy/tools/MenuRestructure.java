@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuRestructure {
+
     //子节点
     private List<Menu> menuList = new ArrayList<Menu>();
 
@@ -26,7 +27,7 @@ public class MenuRestructure {
     private Menu buildChildTree(Menu pNode) {
         List<Menu> childMenus = new ArrayList<Menu>();
         for (Menu menuNode : menuList) {
-            if (menuNode.getMenupid().equals(pNode.getMenuid())) {
+            if (menuNode.getMenuPID().equals(pNode.getMenuID())) {
                 childMenus.add(buildChildTree(menuNode));
             }
         }
@@ -38,14 +39,10 @@ public class MenuRestructure {
     private List<Menu> getRootNode() {
         List<Menu> rootMenuLists = new ArrayList<Menu>();
         for (Menu menuNode : menuList) {
-            if (menuNode.getMenupid()==0) {
+            if (menuNode.getMenuPID()==0) {
                 rootMenuLists.add(menuNode);
             }
         }
         return rootMenuLists;
     }
-
-
-
-
 }

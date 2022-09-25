@@ -4,38 +4,36 @@ import com.gene.soeasy.entity.Menu;
 import com.gene.soeasy.entity.Role;
 import com.gene.soeasy.entity.User;
 import com.gene.soeasy.mapper.UserMapper;
-import com.gene.soeasy.service.UserService;
+import com.gene.soeasy.service.IUserService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gene.soeasy.tools.MenuRestructure;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+
+/**
+ * <p>
+ * 系统用户表 服务实现类
+ * </p>
+ *
+ * @author gene
+ * @since 2022-09-25
+ */
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
 
     @Autowired
     private UserMapper userMapper;
 
-    @Override
-    public List<User> getAllUser() {
-        return userMapper.getAllUser();
-
-    }
-
-    @Override
-    public List<Menu> getUserMenus(String usercode) {
-        MenuRestructure menuRestructure = new MenuRestructure(userMapper.getUserMenus(usercode));
+    public List<Menu> getUserMenus(String userCode){
+        MenuRestructure menuRestructure = new MenuRestructure(userMapper.getUserMenus(userCode));
         return menuRestructure.buildTree();
     }
 
-    @Override
-    public List<Role> getUserRoles(String usercode) {
-        return userMapper.getUserRoles(usercode);
+    public List<Role> getUserRoles(String userCode){
+        return userMapper.getUserRoles(userCode);
     }
 
-    @Override
-    public User login(String userName) {
-        return userMapper.getUser(userName);
-    }
+
+
 }
