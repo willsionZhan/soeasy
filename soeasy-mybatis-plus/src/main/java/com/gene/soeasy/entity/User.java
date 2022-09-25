@@ -25,19 +25,19 @@ public class User implements Serializable {
     @TableId(value = "userID", type = IdType.AUTO)
     private Integer userID;
 
-    @TableField("userCode")
+
     private String userCode;
 
-    @TableField("userName")
+
     private String userName;
 
-    @TableField("userPWD")
+
     private String userPWD;
 
-    @TableField("userStatus")
+
     private Integer userStatus;
 
-    @TableField("logInfo")
+
     private String logInfo;
 
 }
