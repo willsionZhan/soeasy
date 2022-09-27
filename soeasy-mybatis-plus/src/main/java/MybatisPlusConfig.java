@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan("com.gene.*.mapper.*")
+@MapperScan({"com.gene.soeasy.*","com.gene.soeasy.**.*"})
 public class MybatisPlusConfig {
 
 

@@ -10,7 +10,8 @@
         <module>soeasy-mybatis-plus</module>
         <module>soeasy-spring-security</module>
         <module>soeasy-common</module>
-        <module>soeasy-controller</module>
+        <module>soeasy-system</module>
+        <module>soeasy-hr</module>
     </modules>
     <name>soeasy</name>
     <description>soeasy project for Spring Boot</description>
